@@ -1,26 +1,30 @@
-#ifndef __LIST_QUEUE_H_
-#define __LIST_QUEUE_H_
-#include <assert.h>
-#include <stdlib.h>
+/*
+ * Implementaion of queue
+ */
 
-typedef struct qnode
-{
-  int data;
-  struct qnode *next;
-} qnode;
+#ifndef _QUEUE
+#define _QUEUE
 
-typedef struct queue
+typedef struct node
 {
-  int size;
-  qnode *front;
-  qnode *rear;
+    int data;
+    struct node *next;
+} node;
+
+typedef struct
+{
+    struct node* front;
+    struct node* rear;
 } queue;
 
+void init_queue(queue* q);
 
-void init_queue(queue *q);
-int empty(queue *q);
-void enqueue(queue *q, int x);
-int dequeue(queue *q);
+void enqueue(queue* q, int val);
 
+int dequeue(queue* q);
 
-#endif // __LIST_QUEUE_H_
+bool empty(queue* q);
+
+void printq(queue* q);
+
+#endif

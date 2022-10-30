@@ -1,11 +1,16 @@
-#ifndef __INSERTION_SORT_H_
-#define __INSERTION_SORT_H_
-#include "linked_list.h"
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stdio.h>
+/*
+ * Insertion sort
+ */
 
-bool sorted(linked_list *llPtr);
-void sort(linked_list *llPtr);
+#ifndef _INS_SORT
+#define _INS_SORT
 
-#endif // __INSERTION_SORT_H_
+typedef struct node
+{
+    int data;
+    struct node *next;
+} node;
+
+node* sort(node* list);
+
+#endif
